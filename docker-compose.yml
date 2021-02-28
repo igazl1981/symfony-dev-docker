@@ -18,7 +18,7 @@ services:
   php-fpm:
     build:
       context: ./php-fpm
-      dockerfile: FromStesieLibV8.Dockerfile
+      dockerfile: FromUbuntuXenial.Dockerfile
     depends_on:
       - database
     environment:

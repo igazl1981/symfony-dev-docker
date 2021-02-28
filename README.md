@@ -10,9 +10,17 @@ The repository contains 3 images, and a compose file to start an environment for
    
 # php-fpm
 
-The compose file uses `FromStesieLibV8.Dockerfile` for building the FPM image.
+There are several Dockerfile for getting php-fpm ready.
 
-It contains the V8JS extension too for server-side rendering function.
+# FromStesieLibV8.Dockerfile
+
+This adds php 7.4 and compiles V8js on its own because the `pecl` version of `v8js` v2.1.1 can not be compiled.
+
+# FromUbuntuXenial.Dockerfile
+
+This is an `Xenial` version of ubuntu to be able to use `ppa:pinepain/libv8` PPA as it does not have repository for `Bionic`.
+
+The PHP is 7.2 because the `v8js` can be installed by `pecl` with this version.
 
 ## FromOfficialPhp.Dockerfile
 

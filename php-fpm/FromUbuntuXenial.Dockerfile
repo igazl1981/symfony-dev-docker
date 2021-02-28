@@ -20,6 +20,16 @@ RUN echo 'extension=v8js.so' > /etc/php/7.2/mods-available/v8js.ini
 RUN phpenmod v8js
 RUN mkdir /run/php
 
+WORKDIR /tmp
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    curl unzip
+
+RUN curl -sS https://getcomposer.org/installer -o composer-setup.php && \
+    php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+
+WORKDIR /var/www
+
 EXPOSE 9000
 
 CMD ["php-fpm7.2", "-F", "-O"]

@@ -26,8 +26,10 @@ services:
       - APP_SECRET=${APP_SECRET}
       - DATABASE_URL=mysql://${DATABASE_USER}:${DATABASE_PASSWORD}@database:3306/${DATABASE_NAME}?serverVersion=5.7
     volumes:
-      - ./php-fpm/etc/pool.d/www.conf:/etc/php/7.4/fpm/pool.d/www.conf
-      - ./php-fpm/etc/php-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf
+      - ./php-fpm/etc/pool.d/www7.2.conf:/etc/php/7.2/fpm/pool.d/www.conf
+      - ./php-fpm/etc/php7.2-fpm.conf:/etc/php/7.2/fpm/php-fpm.conf
+#      - ./php-fpm/etc/pool.d/www.conf:/etc/php/7.4/fpm/pool.d/www7.4.conf
+#      - ./php-fpm/etc/php7.4-fpm.conf:/etc/php/7.4/fpm/php-fpm.conf
       - ../workspace:/var/www
 
   nginx:
